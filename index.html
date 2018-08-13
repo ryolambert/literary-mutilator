@@ -8,19 +8,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<!-- Bootstrap CSS -->
-		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"
-				integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 		<!-- Link to personal stylized CSS -->
-		<link rel="stylesheet" type="text/css" href="./style.css"/>
+		<link rel="stylesheet" type="text/css" href="./style.css" />
 
 		<!-- jQuery, Popper.js, then Bootstrap JS -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-				  integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-				  crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-				  integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-				  crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="script.js"></script>
 		<title>JS Events Challenge: Literary-Mutilator</title>
 	</head>
@@ -29,52 +24,65 @@
 		<div class="container mx-auto">
 			<div class="row">
 				<div class="col-lg-5 col-md-5 col-sm-5 card mt-5 p-5 ml-0 mx-auto">
-					<h3 class="text-center">Hover your mouse over the text to highlight it.</h3>
+					<h3 class="text-center">Highlight Hover</h3>
+					<p class="text-center"><em>Hover your mouse over the text to highlight everything.</em></p>
 					<hr/>
-					<p id="highlight" onmouseover="highlightMouse()" onmouseout="unhighlightMouse()">The Doctor: All of us
-						have violent instincts. We have evolved from predators. Well, not me, of course. I've been programmed
-						by you predators. B'Elanna Torres: [last lines in "Barge of the Dead"] Mother? Oh god, I'm alive!
-						[throws her arms around Janeway]
-						Captain Janeway: [hugs B'Elanna] Welcome back. [after Seska is unmasked as a Cardassian spy] Seska: I
-						did it for you. I did it for this crew. We are alone here, at the mercy of any number of hostile
-						aliens, because of the incomprehensible decision
-						of a Federation captain. A Federation captain who destroyed our only chance to get home. Federation
-						rules. Federation nobility. Federation compassion? Do you understand, if this had been a Cardassian
-						ship, we would be home now. We must begin to forge
-						alliances. To survive, we must have powerful friends. The Kazon-Nistrim were willing to be our
-						protectors in return for some minor technology.</p>
+					<p id="highlight" onmouseover="highlightMouse()" onmouseout="unhighlightMouse()">The Doctor: All of us have violent instincts. We have evolved from predators. Well, not me, of course. I've been programmed by you predators. B'Elanna Torres: [last lines in "Barge of the Dead"] Mother? Oh god, I'm alive! [throws her arms around Janeway]
+						Captain Janeway: [hugs B'Elanna] Welcome back. [after Seska is unmasked as a Cardassian spy] Seska: I did it for you. I did it for this crew. We are alone here, at the mercy of any number of hostile aliens, because of the incomprehensible decision
+						of a Federation captain. A Federation captain who destroyed our only chance to get home. Federation rules. Federation nobility. Federation compassion? Do you understand, if this had been a Cardassian ship, we would be home now. We must begin to forge
+						alliances. To survive, we must have powerful friends. The Kazon-Nistrim were willing to be our protectors in return for some minor technology.</p>
 				</div>
 				<div class="col-lg-5 col-md-5 col-sm-5 card mt-5 p-5 mr-0 mx-auto">
-					<h3 class="text-center">Word Highlighter: Type in a word and highlight it</h3>
+					<h3 class="text-center">Word Highlighter</h3>
+					<p class="text-center"><em>Type in a word and highlight it.</em></p>
 					<hr/>
 					<input type="text" id="search_text" class="form-control" placeholder="Word you want to highlight">
+					<br/>
 					<button type="button" value="search" id="search" class="btn btn-success mb-3">Highlight</button>
 
-					<p id="inputSearch">I have reset the sensors to scan for frequencies outside the usual range. By emitting
-						harmonic vibrations to shatter the lattices. We will monitor and adjust the frequency of the
-						resonators. He has this ability of instantly interpreting and extrapolating
-						any verbal communication he hears. It may be due to the envelope over the structure, causing
-						hydrogen-carbon helix patterns throughout. I'm comparing the molecular integrity of that bubble
-						against our phasers.</p>
+					<p id="inputSearch">I have reset the sensors to scan for frequencies outside the usual range. By emitting harmonic vibrations to shatter the lattices. We will monitor and adjust the frequency of the resonators. He has this ability of instantly interpreting and extrapolating
+						any verbal communication he hears. It may be due to the envelope over the structure, causing hydrogen-carbon helix patterns throughout. I'm comparing the molecular integrity of that bubble against our phasers.</p>
 
 				</div>
 			</div>
+
+			<div class="row">
+				<div class="col-lg-5 col-md-5 col-sm-5 card mt-5 p-5 mr-0 mx-auto">
+					<h3 class="text-center">ROT13 Encryption</h3>
+					<p class="text-center"><em>Type in a word and highlight it.</em></p>
+					<hr/>
+					<button id="rotate" type="button" class="btn btn-warning">Encrypt It</button>
+					<br/>
+					<p id="rot13">
+						Sensors indicate no shuttle or other ships in this sector. According to coordinates, we have travelled 7,000 light years and are located near the system J-25. Tractor beam released, sir. Force field maintaining our hull integrity. Damage report? Sections
+						27, 28 and 29 on decks four, five and six destroyed. Without our shields, at this range it is probable a photon detonation could destroy the Enterprise.
+					</p>
+
+				</div>
+				<div class="col-lg-5 col-md-5 col-sm-5 card mt-5 p-5 mr-0 mx-auto">
+					<h3 class="text-center">KeyPress Shuffle</h3>
+					<p class="text-center"><em>Press down Ctrl + Alt + S <br/><strong>OR</strong> <br/> Ctrl + Opt + S to shuffle!</em></p>
+					<hr/>
+					<br/>
+					<p id="shuffle">It indicates a synchronic distortion in the areas emanating triolic waves. The cerebellum, the cerebral cortex, the brain stem, the entire nervous system has been depleted of electrochemical energy. Any device like that would produce high levels of
+						triolic waves. These walls have undergone some kind of selective molecular polarization. I haven't determined if our phaser energy can generate a stable field. We could alter the photons with phase discriminators.</p>
+				</div>
+			</div>
+
 			<div class="row">
 				<div class="col-lg-4 col-md- col-sm-4 card mt-5 p-5 mx-auto">
 					<h3 class="text-center">Text to Drag</h3>
 					<p id="p1" draggable="true" ondragstart="dragstart_handler(event);">
-						Communication is not possible. The shuttle has no power. Using the gravitational pull of a star to
-						slingshot back in time? We are going to Starbase Montgomery for Engineering consultations prompted by
-						minor read-out anomalies. Probes have recorded unusual levels of geological activity in all five
-						planetary systems. Assemble a team. Look at records of the Drema quadrant. Would these scans detect
-						artificial transmissions as well as natural signals?
+						Communication is not possible. The shuttle has no power. Using the gravitational pull of a star to slingshot back in time? We are going to Starbase Montgomery for Engineering consultations prompted by minor read-out anomalies. Probes have recorded unusual
+						levels of geological activity in all five planetary systems. Assemble a team. Look at records of the Drema quadrant. Would these scans detect artificial transmissions as well as natural signals?
 					</p>
 				</div>
-				<div class="col-lg-1 col-md-1 col-sm-1 my-auto mx-auto text-center">
-					<p><--Drag Here--></p>
+				<div class="col-lg-2 col-md-2 col-sm-2 my-auto mx-auto text-center">
+					<p>
+						Drag Over There ->
+					</p>
 				</div>
-				<div id="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"
-					  class="col-lg-4 col-md- col-sm-4 card mt-5 p-5 mx-auto">
+				<div id="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" class="col-lg-4 col-md- col-sm-4 card mt-5 p-5 mx-auto">
 					<h3 class="text-center">Drag Here</h3>
 				</div>
 			</div>
@@ -85,7 +93,6 @@
 					<button type="button" class="btn btn-primary" onclick="fetchJson()">Click to Fetch</button>
 				</div>
 			</div>
-		</div>
 	</body>
 
 </html>
