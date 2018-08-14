@@ -1,3 +1,5 @@
+
+
 function highlightMouse() {
 	document.getElementById("highlight").style.backgroundColor = "yellow";
 	document.getElementById("highlight").style.fontFamily = "Monospace";
@@ -12,7 +14,7 @@ function unhighlightMouse() {
 document.addEventListener(
 	"DOMContentLoaded",
 	function() {
-		let searchInput = document.getElementById("inputSearch").innerHTML;
+		var searchInput = document.getElementById("inputSearch").innerHTML;
 		searchInput = searchInput.toString();
 		document.getElementById("search").onclick = function() {
 			highlight_word(searchInput);
@@ -22,10 +24,10 @@ document.addEventListener(
 );
 
 function highlight_word(searchInput) {
-	let text = document.getElementById("search_text").value;
+	var text = document.getElementById("search_text").value;
 	if (text) {
-		let pattern = new RegExp("(" + text + ")", "gi");
-		let new_text = searchInput.replace(
+		var pattern = new RegExp("(" + text + ")", "gi");
+		var new_text = searchInput.replace(
 			pattern,
 			"<span class='highlight'>" + text + "</span>"
 		);
@@ -34,6 +36,7 @@ function highlight_word(searchInput) {
 }
 
 /* KeyPress Shuffle */
+// Assigning function event for Shufflize to key down combo of Ctrl + Alt + S
 document.addEventListener("keydown", function(event) {
 	if (
 		event.code == "KeyS" &&
@@ -75,38 +78,40 @@ function shufflize() {
 }
 
 /* Rotate 13 Encryption */
+// assigning encrypt function to but click
 $(document).ready(function() {
-	$('#btn_decrypt').on('click', decrypt);
-	$('#btn_encrypt').on('click', encrypt);
+	$("#but_encrypt").on("click", encrypt);
 });
 
-function decrypt() {
-	let text = $('rot13Input').filter('#decrypt').val();
-	let translated = rot13(text);
-	$('rot13Input').filter('#decrypt').val('');
-	$('rot13Input').filter('#encrypt').val(translated);
-}
-
 function encrypt() {
-	let text = $('rot13Input').filter('#encrypt').val();
+	// Intaking unencrypted string content from the <p> tag
+	let text = document.getElementById("rot13").textContent;
+	// Converting string through function r (rot13 algorithm)
 	let translated = r(text);
-	$('rot13Input').filter('#encrypt').val('');
-	$('rot13Input').filter('#decrypt').val(translated);
+	// Outputting encrypted text back to <p> tag
+	document.getElementById("rot13").textContent = translated;
 }
 
+
+
+
+// modified for general rot# from
+// https://stackoverflow.com/a/23317009
+// credit to Lonnon Foster for fixed version and Kevin M. for original algorithm
+// 1. a runs as the unencrypted string, while b is undefined
 function r(a, b) {
+	// Tests to see if anything has been passed, if not calls itself recursively until end of string.
+// 2.  incrementing an undefined produces falsey output, the second ternary clause is run.
 	return ++b
+		// 4. for the first time 'a' === "char" after step 3 r, ++b returns a truthy value, so the first ternary clause is run.
+		// 5. tests for whetherr 'a' is lower or uppercase, then shifts the character up 13 letters or returns lower or uppercase 'a' as needed.
 		? String.fromCharCode(
 			(a < "[" ? 91 : 123) > (a = a.charCodeAt() + 13) ? a : a - 26
 		)
+		// 6. loops back up to step 4 until end of string
+		// 3. replacer is called first, for every letter the regex captures of the original string it is then passed as the second parameter to replace().
 		: a.replace(/[a-zA-Z]/g, r);
 }
-
-$(function() {
-	$("#rotate")
-		.click(handleRotate)
-		.trigger("click");
-});
 
 /* Drag N' Drop */
 
@@ -145,13 +150,3 @@ function fetchJson() {
 			});
 		});
 }
-
-// modified for general rot# from
-// https://stackoverflow.com/a/23317009
-// credit to Lonnon Foster for fixed version and Kevin M. for original algorithm
-// 1. a runs as the unencrypted string, while b is undefined
-// Tests to see if anything has been passed, if not calls itself recursively until end of string.
-// 2.  incrementing an undefined produces falsey output, the second ternary clause is run.
-// 4. for the first time 'a' === "char" after step 3 r, ++b returns a truthy value, so the first ternary clause is run.
-// 5. tests for whetherr 'a' is lower or uppercase, then shifts the character up 13 letters or returns lower or uppercase 'a' as needed.
-// 3. replacer is called first, for every letter the regex captures of the original string it is then passed as the second parameter to replace().
