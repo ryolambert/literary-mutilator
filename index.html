@@ -12,6 +12,7 @@
 		<!-- Link to personal stylized CSS -->
 		<link rel="stylesheet" type="text/css" href="./style.css" />
 
+
 		<!-- jQuery, Popper.js, then Bootstrap JS -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -20,7 +21,21 @@
 		<title>JS Events Challenge: Literary-Mutilator</title>
 	</head>
 
-	<body>
+	<body class="background-gradient">
+		<header>
+		</header>
+
+		<section class="py-5">
+			<div class="container">
+				<div class="jumbotron">
+					<h1 class="display-4">Hello, world!</h1>
+					<p class="lead">This is a simple hero unit, a simple jumbotron-style component for
+						calling extra attention to featured content or information.</p>
+					<a class="but but-primary but-lg" href="#" role="button">Learn more</a>
+				</div>
+			</div>
+		</section>
+
 		<div class="container mx-auto">
 			<div class="row">
 				<div class="col-lg-5 col-md-5 col-sm-5 card mt-5 p-5 ml-0 mx-auto">
@@ -38,7 +53,7 @@
 					<hr/>
 					<input type="text" id="search_text" class="form-control" placeholder="Word you want to highlight">
 					<br/>
-					<button type="button" value="search" id="search" class="btn btn-success mb-3">Highlight</button>
+					<button type="button" value="search" id="search" class="but but-success mb-3">Highlight</button>
 
 					<p id="inputSearch">I have reset the sensors to scan for frequencies outside the usual range. By emitting harmonic vibrations to shatter the lattices. We will monitor and adjust the frequency of the resonators. He has this ability of instantly interpreting and extrapolating
 						any verbal communication he hears. It may be due to the envelope over the structure, causing hydrogen-carbon helix patterns throughout. I'm comparing the molecular integrity of that bubble against our phasers.</p>
@@ -49,9 +64,9 @@
 			<div class="row">
 				<div class="col-lg-5 col-md-5 col-sm-5 card mt-5 p-5 mr-0 mx-auto">
 					<h3 class="text-center">ROT13 Encryption</h3>
-					<p class="text-center"><em>Type in a word and highlight it.</em></p>
+					<p class="text-center"><em>Press the button to rotate the letters 13 places.</em></p>
 					<hr/>
-					<button id="rotate" type="button" class="btn btn-warning">Encrypt It</button>
+					<button type="button" name="but_encrypt" id="but_encrypt" class="but but-warning" value="Encrypt It">Encrypt It</button>
 					<br/>
 					<p id="rot13">
 						Sensors indicate no shuttle or other ships in this sector. According to coordinates, we have travelled 7,000 light years and are located near the system J-25. Tractor beam released, sir. Force field maintaining our hull integrity. Damage report? Sections
@@ -77,9 +92,9 @@
 						levels of geological activity in all five planetary systems. Assemble a team. Look at records of the Drema quadrant. Would these scans detect artificial transmissions as well as natural signals?
 					</p>
 				</div>
-				<div class="col-lg-2 col-md-2 col-sm-2 my-auto mx-auto text-center">
-					<p>
-						Drag Over There ->
+				<div class="col-lg-1 col-md-1 col-sm-1 my-auto mx-auto text-center">
+					<p class="drag-comment">
+						<strong>Drag Over There <br/> -></strong>
 					</p>
 				</div>
 				<div id="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" class="col-lg-4 col-md- col-sm-4 card mt-5 p-5 mx-auto">
@@ -90,10 +105,9 @@
 				<div class="col-lg-11 col-md-11 col-sm-11 card mt-5 p-5 my-3 mx-auto">
 					<h2 class="text-center">JSON Fetch</h2>
 					<p id="fetchOutput"></p>
-					<button type="button" class="btn btn-primary" onclick="fetchJson()">Click to Fetch</button>
+					<button type="button" class="but but-primary" onclick="fetchJson()">Click to Fetch</button>
 				</div>
 			</div>
-		</div>
 	</body>
 
 </html>

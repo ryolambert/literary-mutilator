@@ -12,7 +12,7 @@ function unhighlightMouse() {
 document.addEventListener(
 	"DOMContentLoaded",
 	function() {
-		var searchInput = document.getElementById("inputSearch").innerHTML;
+		let searchInput = document.getElementById("inputSearch").innerHTML;
 		searchInput = searchInput.toString();
 		document.getElementById("search").onclick = function() {
 			highlight_word(searchInput);
@@ -22,10 +22,10 @@ document.addEventListener(
 );
 
 function highlight_word(searchInput) {
-	var text = document.getElementById("search_text").value;
+	let text = document.getElementById("search_text").value;
 	if (text) {
-		var pattern = new RegExp("(" + text + ")", "gi");
-		var new_text = searchInput.replace(
+		let pattern = new RegExp("(" + text + ")", "gi");
+		let new_text = searchInput.replace(
 			pattern,
 			"<span class='highlight'>" + text + "</span>"
 		);
@@ -75,6 +75,25 @@ function shufflize() {
 }
 
 /* Rotate 13 Encryption */
+$(document).ready(function() {
+	$('#btn_decrypt').on('click', decrypt);
+	$('#btn_encrypt').on('click', encrypt);
+});
+
+function decrypt() {
+	let text = $('rot13Input').filter('#decrypt').val();
+	let translated = rot13(text);
+	$('rot13Input').filter('#decrypt').val('');
+	$('rot13Input').filter('#encrypt').val(translated);
+}
+
+function encrypt() {
+	let text = $('rot13Input').filter('#encrypt').val();
+	let translated = r(text);
+	$('rot13Input').filter('#encrypt').val('');
+	$('rot13Input').filter('#decrypt').val(translated);
+}
+
 function r(a, b) {
 	return ++b
 		? String.fromCharCode(
@@ -126,3 +145,13 @@ function fetchJson() {
 			});
 		});
 }
+
+// modified for general rot# from
+// https://stackoverflow.com/a/23317009
+// credit to Lonnon Foster for fixed version and Kevin M. for original algorithm
+// 1. a runs as the unencrypted string, while b is undefined
+// Tests to see if anything has been passed, if not calls itself recursively until end of string.
+// 2.  incrementing an undefined produces falsey output, the second ternary clause is run.
+// 4. for the first time 'a' === "char" after step 3 r, ++b returns a truthy value, so the first ternary clause is run.
+// 5. tests for whetherr 'a' is lower or uppercase, then shifts the character up 13 letters or returns lower or uppercase 'a' as needed.
+// 3. replacer is called first, for every letter the regex captures of the original string it is then passed as the second parameter to replace().
