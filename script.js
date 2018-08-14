@@ -78,7 +78,7 @@ function shufflize() {
 }
 
 /* Rotate 13 Encryption */
-// assigning encrypt function to but click
+// assigning encrypt function to button click
 $(document).ready(function() {
 	$("#but_encrypt").on("click", encrypt);
 });
