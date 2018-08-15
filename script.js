@@ -1,4 +1,4 @@
-
+/* Highlighter Mouse */
 
 function highlightMouse() {
 	document.getElementById("highlight").style.backgroundColor = "yellow";
@@ -11,6 +11,7 @@ function unhighlightMouse() {
 }
 
 /* Highlighted Search */
+// adding event listener to link highlight_word with the text input button click
 document.addEventListener(
 	"DOMContentLoaded",
 	function() {
@@ -23,6 +24,7 @@ document.addEventListener(
 	false
 );
 
+// base highlight function utilizing regex for text search input
 function highlight_word(searchInput) {
 	var text = document.getElementById("search_text").value;
 	if (text) {
